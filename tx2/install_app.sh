@@ -10,6 +10,7 @@
 export IF_SET_GIT=0	# Set 1 to install vim and vim's plug-in
 export IF_VIM=0		# Set 1 to install vim and vim's plug-in
 export IF_PYTHON=1	# Set 1 to install recommand python version
+export IF_TENSORFLOW=1	# Set 1 to install python-tensorflow
 export PYTHON_MAJOR_VERSION=3.5
 export PYTHON_MINJOR_VERSION=5 
 export PYTHON_VERSION=${PYTHON_MAJOR_VERSION}.${PYTHON_MINJOR_VERSION} #Install python version= 3.6.5
@@ -66,7 +67,10 @@ if [ $IF_PYTHON -eq 1 ]; then
 	sudo mv /usr/local/bin/pip /usr/local/bin/pip_bak_before_${PYTHON_MAJOR_VERSION}		# Backup system's pip
 	sudo ln -s /usr/local/bin/pip${PYTHON_MAJOR_VERSION} /usr/local/bin/pip		# setup pip3.5 as default
 	sudo pip install --upgrade pip
-	sudo pip install -r python_requirements.txt
+	if [ $IF_TENSORFLOW -eq 1 ];then
+		sudo wget -nc https://raw.githubusercontent.com/jetsonhacks/installTensorFlowJetsonTX/master/TX2/tensorflow-1.3.0-cp35-cp35m-linux_aarch64.whl
+		sudo pip install tensorflow-1.3.0-cp35-cp35m-linux_aarch64.whl			# Install tensorflow
+	fi
 fi
 
 
