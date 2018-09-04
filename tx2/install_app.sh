@@ -62,9 +62,9 @@ if [ $IF_PYTHON -eq 1 ]; then
 	sudo ./configure --enable-optimizations
 	sudo make altinstall
 	sudo mv /usr/bin/python /usr/bin/python_bak_before_${PYTHON_MAJOR_VERSION}	# Backup system's python
-	sudo ln -s /usr/local/bin/python${PYTHON_MAJOR_VERSION} /usr/bin/python	# setup python3.6 as default
-	sudo mv /usr/bin/pip /usr/bin/pip_bak_before_${PYTHON_MAJOR_VERSION}		# Backup system's pip
-	sudo ln -s /usr/local/bin/pip${PYTHON_MAJOR_VERSION} /usr/bin/pip		# setup pip3.6 as default
+	sudo ln -s /usr/local/bin/python${PYTHON_MAJOR_VERSION} /usr/bin/python	# setup python3.5 as default
+	sudo mv /usr/local/bin/pip /usr/local/bin/pip_bak_before_${PYTHON_MAJOR_VERSION}		# Backup system's pip
+	sudo ln -s /usr/local/bin/pip${PYTHON_MAJOR_VERSION} /usr/local/bin/pip		# setup pip3.5 as default
 	sudo pip install --upgrade pip
 	sudo pip install -r python_requirements.txt
 fi
