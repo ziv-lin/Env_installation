@@ -4,13 +4,15 @@
 #	Git
 #	Vim
 #	Python=3.5
+#	Tensorflow
 #	Ros
 ###################################################
 
 export IF_SET_GIT=0	# Set 1 to install vim and vim's plug-in
 export IF_VIM=0		# Set 1 to install vim and vim's plug-in
 export IF_PYTHON=1	# Set 1 to install recommand python version
-export IF_TENSORFLOW=1	# Set 1 to install python-tensorflow
+export IF_TENSORFLOW=0	# Set 1 to install python-tensorflow (ATTENTION!!! this would cost a lot of time!!!)
+export IF_ROS=1		# Set 1 to install ROS
 export PYTHON_MAJOR_VERSION=3.5
 export PYTHON_MINJOR_VERSION=5 
 export PYTHON_VERSION=${PYTHON_MAJOR_VERSION}.${PYTHON_MINJOR_VERSION} #Install python version= 3.6.5
@@ -73,4 +75,17 @@ if [ $IF_PYTHON -eq 1 ]; then
 	fi
 fi
 
+###################################################
+if [ $IF_ROS -eq 1 ]; then
+	#From: https://www.jetsonhacks.com/2017/03/27/robot-operating-system-ros-nvidia-jetson-tx2/
+	#From https://github.com/jetsonhacks/installROSTX2
+	echo "====== --------- ======"
+	echo "====== setup ROS ======"
+	echo "====== --------- ======"
+	git clone https://github.com/jetsonhacks/installROSTX2.git
+	cd installROSTX2
+	./installROSTX2
+	./setupCatkinWorkspace.sh jetsonbot
+	#sudo apt-get install ros-kinetic-desktop-full
+fi
 
