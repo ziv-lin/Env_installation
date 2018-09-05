@@ -41,7 +41,7 @@ echo "====== --------- ======"
 sudo apt-get --assume-yes install samba cifs-utils samba-common
 # Install ternminator
 sudo apt-get --assume-yes install terminator
-
+cp ./terminator_config ~/.config/terminator/config -f
 ###################################################
 echo "====== --------- ======"
 echo "====== setup git ======"
