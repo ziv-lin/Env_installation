@@ -53,7 +53,8 @@ if [ $IF_SET_GIT -eq 1 ]; then
 	git config --global --unset https.prox
 	git config --global user.name ${GIT_USER_NAME}
 	git config --global user.email ${GIT_USER_EMAIL}
-	echo "Finish"
+        cp ssh_config/*  ~/.ssh/
+        echo "Finish"
 fi
 
 ###################################################
