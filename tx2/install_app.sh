@@ -3,16 +3,21 @@
 # -- Install Apps for tx2:
 #	Git
 #	Vim
+#	Terminator
 #	Python=3.5
 #	Tensorflow
-#	Ros
+#	QT5
+#	Kdevelop
+#	Ros (kinetic 1.12.13)
+#
 ###################################################
 
-export IF_SET_GIT=0	# Set 1 to install vim and vim's plug-in
 export IF_VIM=0		# Set 1 to install vim and vim's plug-in
 export IF_PYTHON=1	# Set 1 to install recommand python version
+export IF_QT=1		# Set 1 to install Qt5
 export IF_TENSORFLOW=0	# Set 1 to install python-tensorflow (ATTENTION!!! this would cost a lot of time!!!)
 export IF_ROS=1		# Set 1 to install ROS
+export IF_SET_GIT=0	# Set 1 to settup my profile
 export PYTHON_MAJOR_VERSION=3.5
 export PYTHON_MINJOR_VERSION=5 
 export PYTHON_VERSION=${PYTHON_MAJOR_VERSION}.${PYTHON_MINJOR_VERSION} #Install python version= 3.6.5
@@ -27,6 +32,15 @@ if [ $IF_SET_GIT -eq 1 ];then
 	echo "User name = ${GIT_USER_NAME}"
 	echo "User emai = ${GIT_USER_EMAIL}"
 fi
+###################################################
+echo "====== --------- ======"
+echo "====== In ======"
+echo "====== --------- ======"
+
+# Install samba (For shareing files exchange between PCs)
+sudo apt-get --assume-yes install samba cifs-utils samba-common
+# Install ternminator
+sudo apt-get --assume-yes install terminator
 
 ###################################################
 echo "====== --------- ======"
@@ -51,6 +65,14 @@ if [ $IF_VIM -eq 1 ]; then
 	./install_vim.sh
 fi
 
+###################################################
+if [ $IF_QT -eq 1 ]; then
+	echo "====== --------- ======"
+	echo "====== Install Qt ======"
+	echo "====== --------- ======"
+	sudo apt-get --assume-yes install qt5-default qtbase5-dev qt5-doc qtcreator
+	sudo apt-get --assume-yes install kdevelop
+fi
 ###################################################
 if [ $IF_PYTHON -eq 1 ]; then
 	echo "====== ------------------------ ======"
