@@ -36,6 +36,7 @@ fi
 echo "====== --------- ======"
 echo "====== In ======"
 echo "====== --------- ======"
+sudo apt-get --assume-yes install gdebi
 
 # Install samba (For shareing files exchange between PCs)
 sudo apt-get --assume-yes install samba cifs-utils samba-common
