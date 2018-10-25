@@ -1,7 +1,16 @@
 {
     "SettingsVersion": 1.2,
+    "LocalHostIp": "127.0.0.1",
     "SimMode": "Multirotor",
+    "Avail_sim_mode":["Multirotor","Car","ComputerVision"],
+    "PhysicsEngineName":"FastPhysicsEngine",
+    "Avail_PhysicsEngineName":["PhysX","FastPhysicsEngine"],
 	"ClockSpeed": 1,
+    "ViewMode": "",
+    "Avail_view_mode":["","NoDisplay","FlyWithMe","GroundObserver"],
+    "RpcEnabled": true,
+    "LogMessagesVisible": true,
+    "EngineSound": false,
 	"CameraDefaults": 
 	{
     "CaptureSettings": [
