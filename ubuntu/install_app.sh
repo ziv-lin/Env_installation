@@ -44,6 +44,9 @@ echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sud
 sudo apt-get update
 sudo apt-get --assume-yes install google-chrome-stable
 
+# Install cmake and cmake-gui
+sudo apt-get --assume-yes install cmake cmake-qt-gui
+
 # Install samba (For shareing files exchange between PCs)
 sudo apt-get --assume-yes install samba cifs-utils samba-common
 # Install ternminator
