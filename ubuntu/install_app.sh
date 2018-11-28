@@ -22,6 +22,21 @@ export PYTHON_MAJOR_VERSION=3.5
 export PYTHON_MINJOR_VERSION=5 
 export PYTHON_VERSION=${PYTHON_MAJOR_VERSION}.${PYTHON_MINJOR_VERSION} #Install python version= 3.6.5
 
+###################################################
+if [ $IF_ROS -eq 1 ]; then
+	#From: https://www.jetsonhacks.com/2017/03/27/robot-operating-system-ros-nvidia-jetson-tx2/
+	#From https://github.com/jetsonhacks/installROSTX2
+	echo "====== --------- ======"
+	echo "====== setup ROS ======"
+	echo "====== --------- ======"
+	git clone https://github.com/jetsonhacks/installROSTX2.git
+	cd installROSTX2
+	./installROSTX2
+	./setupCatkinWorkspace.sh jetsonbot
+	#sudo apt-get install ros-kinetic-desktop-full
+fi
+
+###################################################
 if [ $IF_PYTHON -eq 1 ];then
 	echo "You are going to install python ${PYTHON_VERSION}"
 fi
@@ -32,6 +47,7 @@ if [ $IF_SET_GIT -eq 1 ];then
 	echo "User name = ${GIT_USER_NAME}"
 	echo "User emai = ${GIT_USER_EMAIL}"
 fi
+
 ###################################################
 echo "====== --------- ======"
 echo "====== Install apps ======"
@@ -110,17 +126,4 @@ if [ $IF_PYTHON -eq 1 ]; then
 	fi
 fi
 
-###################################################
-if [ $IF_ROS -eq 1 ]; then
-	#From: https://www.jetsonhacks.com/2017/03/27/robot-operating-system-ros-nvidia-jetson-tx2/
-	#From https://github.com/jetsonhacks/installROSTX2
-	echo "====== --------- ======"
-	echo "====== setup ROS ======"
-	echo "====== --------- ======"
-	git clone https://github.com/jetsonhacks/installROSTX2.git
-	cd installROSTX2
-	./installROSTX2
-	./setupCatkinWorkspace.sh jetsonbot
-	#sudo apt-get install ros-kinetic-desktop-full
-fi
 
