@@ -12,16 +12,31 @@
 #
 ###################################################
 
-export IF_VIM=0		# Set 1 to install vim and vim's plug-in
+export IF_VIM=1		# Set 1 to install vim and vim's plug-in
 export IF_PYTHON=1	# Set 1 to install recommand python version
 export IF_QT=1		# Set 1 to install Qt5
 export IF_TENSORFLOW=0	# Set 1 to install python-tensorflow (ATTENTION!!! this would cost a lot of time!!!)
-export IF_ROS=1		# Set 1 to install ROS
-export IF_SET_GIT=0	# Set 1 to settup my profile
+export IF_ROS=0		# Set 1 to install ROS
+export IF_SET_GIT=1	# Set 1 to settup my profile
 export PYTHON_MAJOR_VERSION=3.5
 export PYTHON_MINJOR_VERSION=5 
 export PYTHON_VERSION=${PYTHON_MAJOR_VERSION}.${PYTHON_MINJOR_VERSION} #Install python version= 3.6.5
 
+###################################################
+if [ $IF_ROS -eq 1 ]; then
+	#From: https://www.jetsonhacks.com/2017/03/27/robot-operating-system-ros-nvidia-jetson-tx2/
+	#From https://github.com/jetsonhacks/installROSTX2
+	echo "====== --------- ======"
+	echo "====== setup ROS ======"
+	echo "====== --------- ======"
+	git clone https://github.com/jetsonhacks/installROSTX2.git
+	cd installROSTX2
+	./installROSTX2
+	./setupCatkinWorkspace.sh jetsonbot
+	#sudo apt-get install ros-kinetic-desktop-full
+fi
+
+###################################################
 if [ $IF_PYTHON -eq 1 ];then
 	echo "You are going to install python ${PYTHON_VERSION}"
 fi
@@ -32,11 +47,21 @@ if [ $IF_SET_GIT -eq 1 ];then
 	echo "User name = ${GIT_USER_NAME}"
 	echo "User emai = ${GIT_USER_EMAIL}"
 fi
+
 ###################################################
 echo "====== --------- ======"
 echo "====== Install apps ======"
 echo "====== --------- ======"
 sudo apt-get --assume-yes install gdebi aptitude
+
+# Install google-chrome
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+sudo apt-get update
+sudo apt-get --assume-yes install google-chrome-stable
+
+# Install cmake and cmake-gui
+sudo apt-get --assume-yes install cmake cmake-qt-gui
 
 # Install samba (For shareing files exchange between PCs)
 sudo apt-get --assume-yes install samba cifs-utils samba-common
@@ -101,17 +126,4 @@ if [ $IF_PYTHON -eq 1 ]; then
 	fi
 fi
 
-###################################################
-if [ $IF_ROS -eq 1 ]; then
-	#From: https://www.jetsonhacks.com/2017/03/27/robot-operating-system-ros-nvidia-jetson-tx2/
-	#From https://github.com/jetsonhacks/installROSTX2
-	echo "====== --------- ======"
-	echo "====== setup ROS ======"
-	echo "====== --------- ======"
-	git clone https://github.com/jetsonhacks/installROSTX2.git
-	cd installROSTX2
-	./installROSTX2
-	./setupCatkinWorkspace.sh jetsonbot
-	#sudo apt-get install ros-kinetic-desktop-full
-fi
 
