@@ -16,7 +16,7 @@ export IF_VIM=1		# Set 1 to install vim and vim's plug-in
 export IF_PYTHON=1	# Set 1 to install recommand python version
 export IF_QT=1		# Set 1 to install Qt5
 export IF_TENSORFLOW=0	# Set 1 to install python-tensorflow (ATTENTION!!! this would cost a lot of time!!!)
-export IF_ROS=0		# Set 1 to install ROS
+export IF_ROS=1		# Set 1 to install ROS
 export IF_SET_GIT=1	# Set 1 to settup my profile
 export PYTHON_MAJOR_VERSION=3.5
 export PYTHON_MINJOR_VERSION=5 
@@ -24,16 +24,19 @@ export PYTHON_VERSION=${PYTHON_MAJOR_VERSION}.${PYTHON_MINJOR_VERSION} #Install 
 
 ###################################################
 if [ $IF_ROS -eq 1 ]; then
-	#From: https://www.jetsonhacks.com/2017/03/27/robot-operating-system-ros-nvidia-jetson-tx2/
-	#From https://github.com/jetsonhacks/installROSTX2
 	echo "====== --------- ======"
 	echo "====== setup ROS ======"
 	echo "====== --------- ======"
-	git clone https://github.com/jetsonhacks/installROSTX2.git
-	cd installROSTX2
-	./installROSTX2
-	./setupCatkinWorkspace.sh jetsonbot
-	#sudo apt-get install ros-kinetic-desktop-full
+	sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+	sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
+	sudo apt-get update
+	sudo apt-get --assume-yes install ros-kinetic-desktop-full
+	sudo rosdep init
+	rosdep update
+	echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+	source ~/.bashrc
+	sudo apt-get --assume-yes install python-rosinstall
+	sudo apt-get --assume-yes install ros-kinetic-turtlebot*ls
 fi
 
 ###################################################
