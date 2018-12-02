@@ -1,3 +1,6 @@
+# Install git (for camera driver)
+sudo apt-get --assume-yes install git gitk
+
 sudo apt-get --assume-yes install gdebi aptitude htop ssh caja
 
 # Install samba (For shareing files exchange between PCs)
@@ -10,4 +13,8 @@ cp ./terminator_config ~/.config/terminator/config -f
 # Install ffmped (for camera driver)
 sudo apt-get --assume-yes install ffmpeg
 
-sudo apt-get --assume-yes install git gitk
+# Install fcitx pinyin
+sudo apt-get --assume-yes install fcitx fcitx-googlepinyin im-config
+
+# Install clang
+sudo apt-get --assume-yes install clang-format
