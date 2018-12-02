@@ -104,7 +104,7 @@ if [ $IF_ROS -eq 1 ]; then
 	echo "====== --------- ======"
 	git clone https://github.com/jetsonhacks/installROSTX2.git
 	cd installROSTX2
-	./installROSTX2
+	./installROSTX2.sh -p ros-kinetic-desktop-full
 	./setupCatkinWorkspace.sh jetsonbot
 	#sudo apt-get install ros-kinetic-desktop-full
 fi
