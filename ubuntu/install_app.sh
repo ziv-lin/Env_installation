@@ -36,7 +36,7 @@ if [ $IF_ROS -eq 1 ]; then
 	echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 	source ~/.bashrc
 	sudo apt-get --assume-yes install python-rosinstall
-	sudo apt-get --assume-yes install ros-kinetic-turtlebot*ls
+	sudo apt-get --assume-yes install ros-kinetic-turtlebot*
 fi
 
 ###################################################
@@ -55,24 +55,9 @@ fi
 echo "====== --------- ======"
 echo "====== Install apps ======"
 echo "====== --------- ======"
-sudo apt-get --assume-yes install gdebi aptitude
 
-# Install google-chrome
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-sudo apt-get update
-sudo apt-get --assume-yes install google-chrome-stable
+sudo ../common/ubuntu_apps.sh
 
-# Install cmake and cmake-gui
-sudo apt-get --assume-yes install cmake cmake-qt-gui
-
-# Install samba (For shareing files exchange between PCs)
-sudo apt-get --assume-yes install samba cifs-utils samba-common
-# Install ternminator
-sudo apt-get --assume-yes install terminator
-cp ./terminator_config ~/.config/terminator/config -f
-# Install ffmped (for camera driver)
-sudo apt-get --assume-yes install ffmpeg
 ###################################################
 echo "====== --------- ======"
 echo "====== setup git ======"

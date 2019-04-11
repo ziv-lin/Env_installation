@@ -18,3 +18,9 @@ sudo apt-get --assume-yes install fcitx fcitx-googlepinyin im-config
 
 # Install clang
 sudo apt-get --assume-yes install clang-format
+
+# Install Qt
+sudo add-apt-repository ppa:levi-armstrong/qt-libraries-xenial 
+sudo add-apt-repository ppa:levi-armstrong/ppa 
+sudo apt-get update && sudo apt-get install qt57creator-plugin-ros
+sudo apt-get install -y qt57creator-plugin-ros

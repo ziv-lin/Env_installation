@@ -1,0 +1,17 @@
+参考:https://blog.csdn.net/Siyuada/article/details/78975175 
+1.先catkin_make 初始化工作空间
+2.删除build文件夹
+3.用上述快捷方式打开kdevelop
+4.选择打开工程,找到工作空间(~/ada_ws/src),选择CMakeLists.txt
+5.可以将工作名称进行替换(默认src),选择CMake Project Manager,选择完成
+6.出现cmake配置窗口,选择构建空间 /home/ada/ada_ws/build/
+7.选择构建类型
+8.添加额外参数,确保二进制文件和库在正确的catkin空间中(devel install) 
+-DCATKIN_DEVEL_PREFIX=../devel -DCMAKE_INSTALL_PREFIX=../install
+9.build
+10.执行时选择生成的二进制文件 add new
+--------------------- 
+作者：Siyuada 
+来源：CSDN 
+原文：https://blog.csdn.net/Siyuada/article/details/78975175 
+版权声明：本文为博主原创文章，转载请附上博文链接！
