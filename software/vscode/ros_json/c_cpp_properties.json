@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/ziv/catkin_ws/devel/include",
+                "/opt/ros/kinetic/include",
+                "/home/ziv/catkin_ws/src/livox_loam/include",
+                "/home/ziv/catkin_ws/src/velodyne/velodyne_driver/include",
+                "/home/ziv/catkin_ws/src/velodyne/velodyne_laserscan/include",
+                "/home/ziv/catkin_ws/src/velodyne/velodyne_pointcloud/include",
+                "/usr/include"
+            ],
+            "name": "Linux",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/clang-5.0",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "configurationProvider": "vector-of-bool.cmake-tools",
+            "compileCommands": "${workspaceFolder}/../build/compile_commands.json",
+        }
+    ],
+    "version": 4
+}
