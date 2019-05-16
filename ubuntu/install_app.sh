@@ -18,7 +18,7 @@ export IF_QT=1		# Set 1 to install Qt5
 export IF_TENSORFLOW=0	# Set 1 to install python-tensorflow (ATTENTION!!! this would cost a lot of time!!!)
 export IF_ROS=1		# Set 1 to install ROS
 export IF_SET_GIT=1	# Set 1 to settup my profile
-export PYTHON_MAJOR_VERSION=3.5
+export PYTHON_MAJOR_VERSION=3.6
 export PYTHON_MINJOR_VERSION=5 
 export PYTHON_VERSION=${PYTHON_MAJOR_VERSION}.${PYTHON_MINJOR_VERSION} #Install python version= 3.6.5
 
