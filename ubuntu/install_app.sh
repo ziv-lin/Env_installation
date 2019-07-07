@@ -13,7 +13,7 @@
 ###################################################
 
 export IF_VIM=1		# Set 1 to install vim and vim's plug-in
-export IF_PYTHON=1	# Set 1 to install recommand python version
+export IF_PYTHON=0	# Set 1 to install recommand python version
 export IF_QT=1		# Set 1 to install Qt5
 export IF_TENSORFLOW=0	# Set 1 to install python-tensorflow (ATTENTION!!! this would cost a lot of time!!!)
 export IF_ROS=1		# Set 1 to install ROS
