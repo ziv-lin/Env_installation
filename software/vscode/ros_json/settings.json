@@ -3,6 +3,6 @@
         "/home/ziv/catkin_ws/devel/lib/python2.7/dist-packages",
         "/opt/ros/kinetic/lib/python2.7/dist-packages"
     ],
-    "cmake.buildDirectory" : "${workspaceRoot}/../build",
-    "cmake.installPrefix" : "${workspaceRoot}/../"
+    "cmake.configureArgs": "-DCATKIN_DEVEL_PREFIX=${workspaceRoot}/../devel", 
+    "cmake.buildDirectory": "${workspaceRoot}/../build"
 }
