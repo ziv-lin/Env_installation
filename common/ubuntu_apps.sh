@@ -1,5 +1,8 @@
 # Install git (for camera driver)
-sudo apt-get --assume-yes install git gitk meld
+sudo apt-get --assume-yes install git gitk meld 
+# configure cccache and colorgcc (PCL speed up compilation): http://pointclouds.org/documentation/advanced/c_cache.php#c-cache
+sudo apt-get --assume-yes install ccache colorgcc 
+
 
 sudo apt-get --assume-yes install gdebi aptitude htop ssh caja
 
