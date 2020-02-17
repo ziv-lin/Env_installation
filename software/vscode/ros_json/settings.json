@@ -4,5 +4,6 @@
         "/opt/ros/kinetic/lib/python2.7/dist-packages"
     ],
     "cmake.configureArgs": "-DCATKIN_DEVEL_PREFIX=${workspaceRoot}/../devel", 
-    "cmake.buildDirectory": "${workspaceRoot}/../build"
+    "cmake.buildDirectory": "${workspaceRoot}/../build",
+    "editor.foldingStrategy": "indentation",
 }
